@@ -1,0 +1,12 @@
+{
+  "$id": "https://webcli.local/schema/control/get_websocket_url.req.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GetWebSocketURL Request Payload v1",
+  "type": "object",
+  "required": ["instance_id"],
+  "properties": {
+    "instance_id": { "type": "string", "minLength": 8, "maxLength": 128 },
+    "user_id": { "type": "string", "minLength": 1, "maxLength": 128 }
+  },
+  "additionalProperties": false
+}

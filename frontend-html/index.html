@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WebCLI MVP</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@xterm/xterm/css/xterm.css" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <main class="layout">
+      <section class="panel controls">
+        <h1>WebCLI MVP</h1>
+        <form id="create-form" class="form" data-testid="create-form">
+          <label>
+            Command
+            <input id="command" name="command" placeholder="cmd.exe" required data-testid="command-input" />
+          </label>
+          <label>
+            Args (JSON array)
+            <input id="args" name="args" value='["/c"]' placeholder='["/c", "dir"]' data-testid="args-input" />
+          </label>
+          <label>
+            CWD
+            <input id="cwd" name="cwd" placeholder="C:\Users\..." data-testid="cwd-input" />
+          </label>
+          <label>
+            Env (JSON object)
+            <input id="env" name="env" placeholder='{"KEY": "value"}' data-testid="env-input" />
+          </label>
+          <div class="form-row">
+            <label>
+              Cols
+              <input
+                id="cols"
+                name="cols"
+                type="number"
+                min="1"
+                max="500"
+                value="80"
+                data-testid="cols-input"
+              />
+            </label>
+            <label>
+              Rows
+              <input
+                id="rows"
+                name="rows"
+                type="number"
+                min="1"
+                max="300"
+                value="25"
+                data-testid="rows-input"
+              />
+            </label>
+          </div>
+          <button type="submit" data-testid="create-button">Create Instance</button>
+        </form>
+
+        <div class="instances">
+          <div class="instances-header">
+            <h2>Instances</h2>
+            <button id="refresh-list" type="button" data-testid="refresh-button">Refresh</button>
+          </div>
+          <ul id="instance-list" data-testid="instance-list"></ul>
+        </div>
+      </section>
+
+      <section class="panel terminal-panel">
+        <div class="toolbar">
+          <span id="session-label" data-testid="session-label">No session</span>
+          <div class="toolbar-actions">
+            <button id="load-history" type="button" data-testid="history-button">Load History</button>
+            <button id="resync-session" type="button" class="secondary" data-testid="resync-button">
+              Resync
+            </button>
+            <button id="disconnect-session" type="button" class="secondary" data-testid="disconnect-button">
+              Disconnect
+            </button>
+            <button id="terminate-instance" type="button" data-testid="terminate-button">Terminate</button>
+          </div>
+        </div>
+        <div id="terminal" data-testid="terminal"></div>
+        <div id="status" class="status" data-testid="status">Ready</div>
+        <pre id="plain-output" class="plain-output" data-testid="plain-output"></pre>
+      </section>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/xterm/lib/xterm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@xterm/addon-fit/lib/addon-fit.js"></script>
+    <script type="module" src="/app.js"></script>
+  </body>
+</html>

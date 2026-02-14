@@ -1,0 +1,216 @@
+{
+  "$id": "https://webcli.local/schema/control/index.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebCLI Control RPC Messages Index v1",
+  "oneOf": [
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "req" },
+            "method": { "const": "CreateInstance" },
+            "payload": { "$ref": "./create_instance.req.v1.json" }
+          },
+          "required": ["type", "method", "payload"]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "resp" },
+            "method": { "const": "CreateInstance" },
+            "ok": { "const": true },
+            "payload": { "$ref": "./create_instance.resp.v1.json" }
+          },
+          "required": ["type", "method", "ok", "payload"]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "resp" },
+            "method": { "const": "CreateInstance" },
+            "ok": { "const": false },
+            "error": { "$ref": "../common/error.v1.json" }
+          },
+          "required": ["type", "method", "ok", "error"]
+        }
+      ]
+    },
+
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "req" },
+            "method": { "const": "ListInstances" },
+            "payload": { "$ref": "./list_instances.req.v1.json" }
+          },
+          "required": ["type", "method", "payload"]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "resp" },
+            "method": { "const": "ListInstances" },
+            "ok": { "const": true },
+            "payload": { "$ref": "./list_instances.resp.v1.json" }
+          },
+          "required": ["type", "method", "ok", "payload"]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "resp" },
+            "method": { "const": "ListInstances" },
+            "ok": { "const": false },
+            "error": { "$ref": "../common/error.v1.json" }
+          },
+          "required": ["type", "method", "ok", "error"]
+        }
+      ]
+    },
+
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "req" },
+            "method": { "const": "TerminateInstance" },
+            "payload": { "$ref": "./terminate_instance.req.v1.json" }
+          },
+          "required": ["type", "method", "payload"]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "resp" },
+            "method": { "const": "TerminateInstance" },
+            "ok": { "const": true },
+            "payload": { "$ref": "./terminate_instance.resp.v1.json" }
+          },
+          "required": ["type", "method", "ok", "payload"]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "resp" },
+            "method": { "const": "TerminateInstance" },
+            "ok": { "const": false },
+            "error": { "$ref": "../common/error.v1.json" }
+          },
+          "required": ["type", "method", "ok", "error"]
+        }
+      ]
+    },
+
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "req" },
+            "method": { "const": "GetWebSocketURL" },
+            "payload": { "$ref": "./get_websocket_url.req.v1.json" }
+          },
+          "required": ["type", "method", "payload"]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "resp" },
+            "method": { "const": "GetWebSocketURL" },
+            "ok": { "const": true },
+            "payload": { "$ref": "./get_websocket_url.resp.v1.json" }
+          },
+          "required": ["type", "method", "ok", "payload"]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "resp" },
+            "method": { "const": "GetWebSocketURL" },
+            "ok": { "const": false },
+            "error": { "$ref": "../common/error.v1.json" }
+          },
+          "required": ["type", "method", "ok", "error"]
+        }
+      ]
+    },
+
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "req" },
+            "method": { "const": "HealthCheck" },
+            "payload": { "$ref": "./health_check.req.v1.json" }
+          },
+          "required": ["type", "method", "payload"]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "resp" },
+            "method": { "const": "HealthCheck" },
+            "ok": { "const": true },
+            "payload": { "$ref": "./health_check.resp.v1.json" }
+          },
+          "required": ["type", "method", "ok", "payload"]
+        }
+      ]
+    },
+    {
+      "allOf": [
+        { "$ref": "../common/rpc.v1.json" },
+        {
+          "properties": {
+            "type": { "const": "resp" },
+            "method": { "const": "HealthCheck" },
+            "ok": { "const": false },
+            "error": { "$ref": "../common/error.v1.json" }
+          },
+          "required": ["type", "method", "ok", "error"]
+        }
+      ]
+    }
+  ]
+}

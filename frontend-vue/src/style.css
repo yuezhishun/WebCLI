@@ -1,0 +1,24 @@
+:root {
+  --bg: #f4efe5;
+  --panel: #fffaf2;
+  --ink: #2a2a2a;
+  --muted: #666;
+  --accent: #bd3d1f;
+  --border: #dfd2bf;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "IBM Plex Sans", "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: linear-gradient(135deg, #f7f2e9, #efe6d7);
+  min-height: 100vh;
+}
+
+#app {
+  min-height: 100vh;
+}

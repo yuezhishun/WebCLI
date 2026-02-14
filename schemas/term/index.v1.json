@@ -1,0 +1,17 @@
+{
+  "$id": "https://webcli.local/schema/term/index.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebCLI Term Messages Index v1",
+  "oneOf": [
+    { "$ref": "./term.snapshot.v1.json" },
+    { "$ref": "./term.patch.v1.json" },
+    { "$ref": "./term.stdin.v1.json" },
+    { "$ref": "./term.history.get.v1.json" },
+    { "$ref": "./term.history.chunk.v1.json" },
+    { "$ref": "./term.resize.v1.json" },
+    { "$ref": "./term.resync.v1.json" },
+    { "$ref": "./term.exit.v1.json" },
+    { "$ref": "./ping.v1.json" },
+    { "$ref": "./pong.v1.json" }
+  ]
+}

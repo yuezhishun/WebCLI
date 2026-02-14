@@ -1,0 +1,49 @@
+{
+  "$id": "https://webcli.local/schema/term/term.history.chunk.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "term.history.chunk v1",
+  "type": "object",
+  "required": [
+    "v",
+    "type",
+    "instance_id",
+    "req_id",
+    "lines",
+    "next_before",
+    "exhausted"
+  ],
+  "properties": {
+    "v": { "type": "integer", "const": 1 },
+    "type": { "type": "string", "const": "term.history.chunk" },
+    "instance_id": { "type": "string" },
+    "req_id": { "type": "string", "minLength": 8, "maxLength": 64 },
+
+    "range": {
+      "type": "object",
+      "required": ["from", "to"],
+      "properties": {
+        "from": { "type": "string" },
+        "to": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+
+    "lines": {
+      "type": "array",
+      "minItems": 0,
+      "maxItems": 200,
+      "items": {
+        "type": "object",
+        "required": ["segs"],
+        "properties": {
+          "segs": { "$ref": "../common/segments.v1.json" }
+        },
+        "additionalProperties": false
+      }
+    },
+
+    "next_before": { "type": "string", "minLength": 3, "maxLength": 64 },
+    "exhausted": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

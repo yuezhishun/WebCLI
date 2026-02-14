@@ -1,0 +1,11 @@
+{
+  "$id": "https://webcli.local/schema/control/terminate_instance.resp.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TerminateInstance Response Payload v1",
+  "type": "object",
+  "required": ["terminated"],
+  "properties": {
+    "terminated": { "type": "boolean" }
+  },
+  "additionalProperties": false
+}

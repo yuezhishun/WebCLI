@@ -1,0 +1,8 @@
+{
+  "$id": "https://webcli.local/schema/control/health_check.req.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HealthCheck Request Payload v1",
+  "type": "object",
+  "properties": {},
+  "additionalProperties": false
+}

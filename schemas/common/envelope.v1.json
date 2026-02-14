@@ -1,0 +1,19 @@
+{
+  "$id": "https://webcli.local/schema/common/envelope.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebCLI Envelope v1",
+  "type": "object",
+  "required": ["v", "type", "instance_id"],
+  "properties": {
+    "v": { "type": "integer", "const": 1 },
+    "type": { "type": "string", "minLength": 1 },
+    "instance_id": { "type": "string", "minLength": 8, "maxLength": 128 },
+
+    "seq": { "type": "integer", "minimum": 0 },
+    "ts": { "type": "integer", "minimum": 0 },
+
+    "req_id": { "type": "string", "minLength": 8, "maxLength": 64 },
+    "trace_id": { "type": "string", "minLength": 8, "maxLength": 64 }
+  },
+  "additionalProperties": true
+}

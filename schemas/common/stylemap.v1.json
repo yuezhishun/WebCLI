@@ -1,0 +1,22 @@
+{
+  "$id": "https://webcli.local/schema/common/stylemap.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Style Map v1",
+  "type": "object",
+  "patternProperties": {
+    "^[0-9]+$": {
+      "type": "object",
+      "required": ["bold", "italic", "underline", "inverse"],
+      "properties": {
+        "fg": { "type": ["integer", "null"], "minimum": 0, "maximum": 255 },
+        "bg": { "type": ["integer", "null"], "minimum": 0, "maximum": 255 },
+        "bold": { "type": "boolean" },
+        "italic": { "type": "boolean" },
+        "underline": { "type": "boolean" },
+        "inverse": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

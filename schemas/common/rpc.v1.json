@@ -1,0 +1,71 @@
+{
+  "$id": "https://webcli.local/schema/common/rpc.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebCLI RPC over WebSocket Envelope v1",
+  "type": "object",
+  "required": ["v", "type", "id", "method"],
+  "properties": {
+    "v": { "type": "integer", "const": 1 },
+
+    "type": { "type": "string", "enum": ["req", "resp", "event"] },
+
+    "id": { "type": "string", "minLength": 8, "maxLength": 64 },
+
+    "method": { "type": "string", "minLength": 1, "maxLength": 64 },
+
+    "deadline_ms": { "type": "integer", "minimum": 1, "maximum": 120000 },
+
+    "idempotency_key": { "type": "string", "minLength": 8, "maxLength": 128 },
+
+    "trace_id": { "type": "string", "minLength": 8, "maxLength": 64 },
+
+    "ok": { "type": "boolean" },
+
+    "payload": { "type": "object", "additionalProperties": true },
+
+    "error": { "$ref": "./error.v1.json" },
+
+    "ts": { "type": "integer", "minimum": 0 }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "type": { "const": "req" } },
+        "required": ["type"]
+      },
+      "then": {
+        "required": ["deadline_ms", "payload"],
+        "properties": {
+          "ok": false,
+          "error": false
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": { "type": { "const": "resp" } },
+        "required": ["type"]
+      },
+      "then": {
+        "required": ["ok"],
+        "allOf": [
+          {
+            "if": {
+              "properties": { "ok": { "const": true } },
+              "required": ["ok"]
+            },
+            "then": { "required": ["payload"] }
+          },
+          {
+            "if": {
+              "properties": { "ok": { "const": false } },
+              "required": ["ok"]
+            },
+            "then": { "required": ["error"] }
+          }
+        ]
+      }
+    }
+  ],
+  "additionalProperties": false
+}

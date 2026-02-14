@@ -1,0 +1,11 @@
+{
+  "$id": "https://webcli.local/schema/control/terminate_instance.req.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "TerminateInstance Request Payload v1",
+  "type": "object",
+  "required": ["instance_id"],
+  "properties": {
+    "instance_id": { "type": "string", "minLength": 8, "maxLength": 128 }
+  },
+  "additionalProperties": false
+}

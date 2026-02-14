@@ -1,0 +1,11 @@
+{
+  "$id": "https://webcli.local/schema/control/get_websocket_url.resp.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GetWebSocketURL Response Payload v1",
+  "type": "object",
+  "required": ["websocket_url"],
+  "properties": {
+    "websocket_url": { "type": "string", "minLength": 10, "maxLength": 8192 }
+  },
+  "additionalProperties": false
+}

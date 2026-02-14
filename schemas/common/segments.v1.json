@@ -1,0 +1,13 @@
+{
+  "$id": "https://webcli.local/schema/common/segments.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Segments v1",
+  "description": "A list of segments. Each segment is [text, styleId].",
+  "type": "array",
+  "items": {
+    "type": "array",
+    "prefixItems": [{ "type": "string" }, { "type": "integer", "minimum": 0 }],
+    "minItems": 2,
+    "maxItems": 2
+  }
+}

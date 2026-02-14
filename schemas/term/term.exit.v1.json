@@ -1,0 +1,16 @@
+{
+  "$id": "https://webcli.local/schema/term/term.exit.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "term.exit v1",
+  "type": "object",
+  "required": ["v", "type", "instance_id", "code", "message"],
+  "properties": {
+    "v": { "type": "integer", "const": 1 },
+    "type": { "type": "string", "const": "term.exit" },
+    "instance_id": { "type": "string" },
+    "code": { "type": "integer" },
+    "signal": { "type": ["string", "null"] },
+    "message": { "type": "string", "maxLength": 200 }
+  },
+  "additionalProperties": false
+}

@@ -1,0 +1,14 @@
+{
+  "$id": "https://webcli.local/schema/term/ping.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ping v1",
+  "type": "object",
+  "required": ["v", "type", "instance_id"],
+  "properties": {
+    "v": { "type": "integer", "const": 1 },
+    "type": { "type": "string", "const": "ping" },
+    "instance_id": { "type": "string" },
+    "ts": { "type": "integer", "minimum": 0 }
+  },
+  "additionalProperties": false
+}

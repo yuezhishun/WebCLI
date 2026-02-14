@@ -1,0 +1,40 @@
+{
+  "$id": "https://webcli.local/schema/term/term.patch.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "term.patch v1",
+  "type": "object",
+  "required": ["v", "type", "instance_id", "seq", "cursor", "styles", "rows"],
+  "properties": {
+    "v": { "type": "integer", "const": 1 },
+    "type": { "type": "string", "const": "term.patch" },
+    "instance_id": { "type": "string" },
+    "seq": { "type": "integer", "minimum": 0 },
+    "ts": { "type": "integer", "minimum": 0 },
+    "cursor": {
+      "type": "object",
+      "required": ["x", "y", "visible"],
+      "properties": {
+        "x": { "type": "integer", "minimum": 0 },
+        "y": { "type": "integer", "minimum": 0 },
+        "visible": { "type": "boolean" }
+      },
+      "additionalProperties": false
+    },
+    "styles": { "$ref": "../common/stylemap.v1.json" },
+    "rows": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 300,      
+      "items": {
+        "type": "object",
+        "required": ["y", "segs"],
+        "properties": {
+          "y": { "type": "integer", "minimum": 0 },
+          "segs": { "$ref": "../common/segments.v1.json" }
+        },
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

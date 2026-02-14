@@ -1,0 +1,27 @@
+{
+  "$id": "https://webcli.local/schema/control/health_check.resp.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HealthCheck Response Payload v1",
+  "type": "object",
+  "required": [
+    "ok",
+    "timestamp_ms",
+    "version",
+    "uptime_sec",
+    "connected_nodes",
+    "instances_running"
+  ],
+  "properties": {
+    "ok": { "type": "boolean" },
+    "version": { "type": "string", "minLength": 1, "maxLength": 256 },
+    "uptime_sec": { "type": "integer", "minimum": 0 },
+    "connected_nodes": { "type": "integer", "minimum": 0, "maximum": 1000000 },
+    "instances_running": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100000000
+    },
+    "timestamp_ms": { "type": "integer", "minimum": 0 }
+  },
+  "additionalProperties": false
+}

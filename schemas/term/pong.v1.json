@@ -1,0 +1,14 @@
+{
+  "$id": "https://webcli.local/schema/term/pong.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "pong v1",
+  "type": "object",
+  "required": ["v", "type", "instance_id"],
+  "properties": {
+    "v": { "type": "integer", "const": 1 },
+    "type": { "type": "string", "const": "pong" },
+    "instance_id": { "type": "string" },
+    "ts": { "type": "integer", "minimum": 0 }
+  },
+  "additionalProperties": false
+}

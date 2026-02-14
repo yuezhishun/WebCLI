@@ -1,0 +1,32 @@
+{
+  "$id": "https://webcli.local/schema/common/error.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "WebCLI Error v1",
+  "type": "object",
+  "required": ["code", "message", "retryable"],
+  "properties": {
+    "code": {
+      "type": "string",
+      "enum": [
+        "UNAUTHENTICATED",
+        "PERMISSION_DENIED",
+        "INVALID_ARGUMENT",
+        "NODE_NOT_FOUND",
+        "INSTANCE_NOT_FOUND",
+        "INSTANCE_ALREADY_TERMINATED",
+        "RESOURCE_EXHAUSTED",
+        "UNAVAILABLE",
+        "TIMEOUT",
+        "CONFLICT",
+        "INTERNAL"
+      ]
+    },
+    "message": { "type": "string", "maxLength": 2000 },
+    "retryable": { "type": "boolean" },
+    "details": {
+      "type": "object",
+      "additionalProperties": true
+    }
+  },
+  "additionalProperties": false
+}

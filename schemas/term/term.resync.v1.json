@@ -1,0 +1,19 @@
+{
+  "$id": "https://webcli.local/schema/term/term.resync.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "term.resync v1",
+  "type": "object",
+  "required": ["v", "type", "instance_id", "req_id", "reason"],
+  "properties": {
+    "v": { "type": "integer", "const": 1 },
+    "type": { "type": "string", "const": "term.resync" },
+    "instance_id": { "type": "string" },
+    "req_id": { "type": "string", "minLength": 8, "maxLength": 64 },
+    "reason": {
+      "type": "string",
+      "enum": ["seq_gap", "decode_error", "client_backpressure", "manual"]
+    },
+    "last_seq": { "type": "integer", "minimum": 0 }
+  },
+  "additionalProperties": false
+}

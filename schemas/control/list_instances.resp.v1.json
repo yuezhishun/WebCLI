@@ -1,0 +1,36 @@
+{
+  "$id": "https://webcli.local/schema/control/list_instances.resp.v1.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ListInstances Response Payload v1",
+  "type": "object",
+  "required": ["instances", "total"],
+  "properties": {
+    "instances": {
+      "type": "array",
+      "maxItems": 10000,
+      "items": {
+        "type": "object",
+        "required": [
+          "instance_id",
+          "node_id",
+          "status",
+          "command",
+          "created_at_ms"
+        ],
+        "properties": {
+          "instance_id": { "type": "string", "minLength": 8, "maxLength": 128 },
+          "node_id": { "type": "string", "minLength": 1, "maxLength": 128 },
+          "status": {
+            "type": "string",
+            "enum": ["RUNNING", "TERMINATED", "ERROR"]
+          },
+          "command": { "type": "string", "minLength": 1, "maxLength": 4096 },
+          "created_at_ms": { "type": "integer", "minimum": 0 }
+        },
+        "additionalProperties": false
+      }
+    },
+    "total": { "type": "integer", "minimum": 0, "maximum": 100000000 }
+  },
+  "additionalProperties": false
+}
